@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Renaissance / Baroque Palette */
+  --background: 40 20% 94%;      /* Off-white parchment */
+  --foreground: 30 15% 20%;      /* Dark charcoal/brown text */
+  
+  --primary: 0 40% 35%;          /* Deep Venetian Red */
+  --primary-foreground: 40 20% 94%;
+  
+  --secondary: 35 15% 85%;       /* Light clay/paper */
+  --secondary-foreground: 30 15% 20%;
+  
+  --muted: 35 15% 85%;
+  --muted-foreground: 30 10% 40%; /* Faded ink */
+  
+  --accent: 45 40% 45%;          /* Gold/Ochre accent */
+  --accent-foreground: 30 15% 20%;
+  
+  --destructive: 0 50% 40%;
+  --destructive-foreground: 40 20% 94%;
+
+  --border: 30 10% 80%;
+  --input: 30 10% 80%;
+  --ring: 0 40% 35%;
+  
+  --radius: 0.25rem;
+
+  --font-serif: 'Playfair Display', serif;
+  --font-body: 'Lora', serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+    background-color: hsl(var(--background));
+    /* Paper Texture Overlay */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    @apply font-bold tracking-tight text-primary;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom Scrollbar for that vintage feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
